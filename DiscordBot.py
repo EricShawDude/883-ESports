@@ -23,7 +23,7 @@ day = int(datetime.today().day)
 
 @client.event
 async def on_ready():
-    await client.change_presence(activity=discord.Game(name="VALORANT"))
+    await client.change_presence(activity=discord.Game(name="883 E-Sports Tournament"))
     await tree.sync(guild=discord.Object(id=1334394629746851913))
     channel = client.get_channel(1349470222532345989)
 
