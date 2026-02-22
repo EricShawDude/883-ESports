@@ -10,7 +10,21 @@ from dotenv import load_dotenv
 load_dotenv() # Loads the environment variables from the .env file, which is where the bot token is stored. This allows the bot to access the token securely without hardcoding it into the code.
 
 description = ""
-# todo implement datastructure for a user
+
+class User:
+    def __init__(self, first_name: str, last_name: str, 
+                discord_user: str, discord_id: int, 
+                rank: str, roles: list, unit: int, team_name: str):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.discord_user = discord_user
+        self.discord_id = discord_id
+        self.rank = rank
+        self.roles = roles
+        self.unit = unit
+        self.team_name = team_name
+
+
 # implement hashmap for users 
 # implement a function to check if a user is in the hashmap and assign roles accordingly
 
