@@ -43,6 +43,22 @@ async def on_ready():
 
     await channel.send(f"Bot is online and running on {dateStr}")
 
+@tree.command(
+    name = "join",
+    description= "Sign-in for the tournament and get assigned roles.",
+    guild = discord.Object(id=1334394629746851913)
+)
+async def join(interaction: discord.Interaction):
+    guild = await client.fetch_guild(1334394629746851913)
+    member = await guild.fetch_member(interaction.user.id)
+
+    val = guild.get_role(1334397946720157727)
+
+    gameIds = {
+                "Valorant": val,
+
+    }
+
 try:
     client.run(os.getenv('token')) # This command gets the token from the .env file and runs the bot
 except Exception as e:
