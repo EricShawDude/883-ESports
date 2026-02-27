@@ -51,16 +51,41 @@ async def on_ready():
     description= "Sign-in for the tournament and get assigned roles.",
     guild = discord.Object(id=1334394629746851913)
 )
+
+
+
 async def join(interaction: discord.Interaction):
     guild = await client.fetch_guild(1334394629746851913)
     member = await guild.fetch_member(interaction.user.id)
 
-    val = guild.get_role(1334397946720157727)
+    # Fetching game role IDs
+    valorant = guild.get_role(1334397946720157727)
+    brawl_stars = guild.get_role(1334397977531519018)
+    fortnite = guild.get_role(1476758746553122959)
+    tetris = guild.get_role(1334398002302943253)
+    clash_royale = guild.get_role(1476758862324437105)
 
-    gameIds = {
-                "Valorant": val,
+    # Fetching channel IDs
+    general = guild.get_channel(1348128251326890055)
+    authentication = guild.get_channel(1348128057365364851)
+    announcements = guild.get_channel(1349470222532345989)
 
+    # Hardcoded dict for game role IDS
+    gameIDs = {
+                "Valorant": valorant,
+                "Brawl Stars": brawl_stars,
+                "Fortnite": fortnite,
+                "Tetris": tetris,
+                "Clash Royale": clash_royale
     }
+    
+    # Hardcoded dict for channel IDS
+    channelIDs = {
+                "General": general,
+                "Authentication": authentication,
+                "Announcements": announcements
+    }
+
 
 try:
     client.run(os.getenv('token')) # This command gets the token from the .env file and runs the bot
