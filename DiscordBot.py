@@ -24,9 +24,12 @@ class User:
         self.unit = unit
         self.team_name = team_name
 
+def load_users(filepath = "data.json"):
+    try:
 
-# implement hashmap for users 
-# implement a function to check if a user is in the hashmap and assign roles accordingly
+    except Exception as e:
+        print("Error loading users from file:", e)
+        return {}
 
 intents = discord.Intents.all()
 client = discord.Client(intents=intents) #Declares the bot client and sets the intents to all, which allows the bot to access all events and data from the server. This is necessary for the bot to function properly and assign roles, check user information, etc.
